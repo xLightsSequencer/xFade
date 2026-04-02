@@ -22,7 +22,7 @@
 #include <wx/msgdlg.h>
 #include <wx/stackwalk.h>
 
-#include "../xLights/xLightsVersion.h"
+#include "../shared/xFadeVersion.h"
 #include <wx/filename.h>
 #include <wx/stdpaths.h>
 #include <wx/debugrpt.h>
@@ -132,9 +132,9 @@ std::string DecodeOS(wxOperatingSystemId o)
 
 void DumpConfig()
 {
-    spdlog::info("Version: " + std::string(xlights_version_string.c_str()));
+    spdlog::info("Version: " + std::string(xfade_version_string.c_str()));
     spdlog::info("Bits: " + std::string(GetBitness().c_str()));
-    spdlog::info("Build Date: " + std::string(xlights_build_date.c_str()));
+    spdlog::info("Build Date: " + std::string(xfade_build_date.c_str()));
     spdlog::info("Machine configuration:");
     wxMemorySize s = wxGetFreeMemory();
     if (s != -1)

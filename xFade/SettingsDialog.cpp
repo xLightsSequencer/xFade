@@ -14,10 +14,10 @@
 #include "SettingsDialog.h"
 #include "UniverseEntryDialog.h"
 #include "FadeExcludeDialog.h"
-#include "../xLights/utils/UtilFunctions.h"
-#include "../xLights/ui/wxUtilities.h"
-#include "../xLights/utils/ip_utils.h"
-#include "../xLights/ui/setup/IPEntryDialog.h"
+#include "../shared/utils/UtilFunctions.h"
+#include "../shared/ui/wxUtilities.h"
+#include "../shared/utils/ip_utils.h"
+#include "../shared/ui/setup/IPEntryDialog.h"
 
 //(*IdInit(SettingsDialog)
 const long SettingsDialog::ID_STATICTEXT5 = wxNewId();

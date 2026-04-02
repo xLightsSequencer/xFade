@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\xLights\xLightsVersion.cpp" />
+    <ClCompile Include="..\shared\xFadeVersion.cpp" />
     <ClCompile Include="UniverseEntryDialog.cpp" />
     <ClCompile Include="xFadeApp.cpp" />
     <ClCompile Include="xFadeMain.cpp" />
     <ClCompile Include="..\xLights\IPEntryDialog.cpp" />
-    <ClCompile Include="..\xLights\utils\UtilFunctions.cpp" />
+    <ClCompile Include="..\shared\utils\UtilFunctions.cpp" />
     <ClCompile Include="Emitter.cpp" />
-    <ClCompile Include="..\xLights\ui\shared\utils\xLightsTimer.cpp" />
+    <ClCompile Include="..\shared\ui\shared\utils\xFadeTimer.cpp" />
     <ClCompile Include="MIDIListener.cpp" />
     <ClCompile Include="Settings.cpp" />
     <ClCompile Include="SettingsDialog.cpp" />
-    <ClCompile Include="..\xSchedule\wxMIDI\src\wxMidi.cpp" />
-    <ClCompile Include="..\xSchedule\wxMIDI\src\wxMidiDatabase.cpp" />
+    <ClCompile Include="..\midi\wxMIDI\src\wxMidi.cpp" />
+    <ClCompile Include="..\midi\wxMIDI\src\wxMidiDatabase.cpp" />
     <ClCompile Include="wxLED.cpp" />
     <ClCompile Include="MIDIAssociateDialog.cpp" />
     <ClCompile Include="FadeExcludeDialog.cpp" />
@@ -21,59 +21,53 @@
     <ClCompile Include="PacketData.cpp" />
     <ClCompile Include="UniverseData.cpp" />
     <ClCompile Include="ArtNETReceiver.cpp" />
-    <ClCompile Include="..\xSchedule\wxJSON\jsonreader.cpp" />
-    <ClCompile Include="..\xSchedule\wxJSON\jsonval.cpp" />
-    <ClCompile Include="..\common\xlBaseApp.cpp" />
-    <ClCompile Include="..\xLights\utils\CurlManager.cpp">
+    <ClCompile Include="..\json\wxJSON\jsonreader.cpp" />
+    <ClCompile Include="..\json\wxJSON\jsonval.cpp" />
+    <ClCompile Include="..\common\xFadeBaseApp.cpp" />
       <Filter>utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\xLights\utils\ip_utils.cpp">
+    <ClCompile Include="..\shared\utils\ip_utils.cpp">
       <Filter>utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\xLights\utils\string_utils.cpp">
+    <ClCompile Include="..\shared\utils\string_utils.cpp">
       <Filter>utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\xLights\utils\JobPool.cpp" />
-    <ClCompile Include="..\xLights\utils\TraceLog.cpp" />
     <ClCompile Include="..\dependencies\pugixml\src\pugixml.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\xLights\xLightsVersion.h" />
+    <ClInclude Include="..\shared\xFadeVersion.h" />
     <ClInclude Include="UniverseEntryDialog.h" />
     <ClInclude Include="xFadeApp.h" />
     <ClInclude Include="xFadeMain.h" />
     <ClInclude Include="..\xLights\IPEntryDialog.h" />
-    <ClInclude Include="..\xLights\utils\UtilFunctions.h" />
+    <ClInclude Include="..\shared\utils\UtilFunctions.h" />
     <ClInclude Include="Emitter.h" />
     <ClInclude Include="PacketData.h" />
     <ClInclude Include="..\xLights\xLightsTimer.h" />
     <ClInclude Include="MIDIListener.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="SettingsDialog.h" />
-    <ClInclude Include="..\xSchedule\wxMIDI\src\wxMidi.h" />
+    <ClInclude Include="..\midi\wxMIDI\src\wxMidi.h" />
     <ClInclude Include="wxLED.h" />
     <ClInclude Include="MIDIAssociateDialog.h" />
     <ClInclude Include="FadeExcludeDialog.h" />
     <ClInclude Include="E131Receiver.h" />
     <ClInclude Include="ArtNETReceiver.h" />
     <ClInclude Include="UniverseData.h" />
-    <ClInclude Include="..\common\xlBaseApp.h" />
+    <ClInclude Include="..\common\xFadeBaseApp.h" />
     <ClInclude Include="..\common\xlStackWalker.h" />
-    <ClInclude Include="..\xSchedule\wxJSON\json_defs.h" />
-    <ClInclude Include="..\xSchedule\wxJSON\jsonreader.h" />
-    <ClInclude Include="..\xSchedule\wxJSON\jsonval.h" />
-    <ClInclude Include="..\xLights\utils/ExternalHooks.h" />
-    <ClInclude Include="..\xLights\utils\CurlManager.h">
+    <ClInclude Include="..\json\wxJSON\json_defs.h" />
+    <ClInclude Include="..\json\wxJSON\jsonreader.h" />
+    <ClInclude Include="..\json\wxJSON\jsonval.h" />
+    <ClInclude Include="..\shared\utils/ExternalHooks.h" />
       <Filter>utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\xLights\utils\ip_utils.h">
+    <ClInclude Include="..\shared\utils\ip_utils.h">
       <Filter>utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\xLights\utils\string_utils.h">
+    <ClInclude Include="..\shared\utils\string_utils.h">
       <Filter>utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\xLights\utils\JobPool.h" />
-    <ClInclude Include="..\xLights\utils\TraceLog.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />

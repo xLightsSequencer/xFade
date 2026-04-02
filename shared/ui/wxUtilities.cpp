@@ -30,10 +30,10 @@
 #include <wx/wfstream.h>
 
 #include "wxUtilities.h"
-#include "utils/ExternalHooks.h"
-#include "../xLightsVersion.h"
-#include "../utils/CurlManager.h"
-#include "../utils/string_utils.h"
+#include "../shared/utils/ExternalHooks.h"
+#include "../shared/xFadeVersion.h"
+#include // "../utils/CurlManager.h" -- removed
+#include "../shared/utils/string_utils.h"
 
 #include <log.h>
 

@@ -21,9 +21,9 @@
 #include <wx/filename.h>
 #include <wx/debugrpt.h>
 
-#include "../xLights/xLightsVersion.h"
-#include "../xLights/utils/UtilFunctions.h"
-#include "../xLights/ui/wxUtilities.h"
+#include "../shared/xFadeVersion.h"
+#include "../shared/utils/UtilFunctions.h"
+#include "../shared/ui/wxUtilities.h"
 #include "UniverseEntryDialog.h"
 #include "Emitter.h"
 #include "SettingsDialog.h"
@@ -41,11 +41,11 @@
 
 #include <log.h>
 
-#include "../include/xLights.xpm"
-#include "../include/xLights-16.xpm"
-#include "../include/xLights-32.xpm"
-#include "../include/xLights-64.xpm"
-#include "../include/xLights-128.xpm"
+#include "../include/xFade.xpm"
+#include "../include/xFade-16.xpm"
+#include "../include/xFade-32.xpm"
+#include "../include/xFade-64.xpm"
+#include "../include/xFade-128.xpm"
 
 //helper functions
 enum class wxbuildinfoformat {

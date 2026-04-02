@@ -34,8 +34,8 @@
 #include <wx/timer.h>
 //*)
 
-#include "../common/xlBaseApp.h"
-#include "../xLights/ui/shared/utils/xLightsTimer.h"
+#include "../common/xFadeBaseApp.h"
+#include "../shared/ui/shared/utils/xFadeTimer.h"
 #include <map>
 #include <wx/socket.h>
 #include <mutex>
@@ -190,7 +190,7 @@ private:
         wxTextCtrl* TextCtrl_RightSequence;
         wxTextCtrl* TextCtrl_RightTag;
         wxTimer Timer_Status;
-        xLightsTimer UITimer;
+        xFadeTimer UITimer;
         //*)
 
         DECLARE_EVENT_TABLE()

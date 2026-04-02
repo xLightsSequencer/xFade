@@ -1,5 +1,5 @@
 #include "UniverseEntryDialog.h"
-#include "../xLights/utils/ip_utils.h"
+#include "../shared/utils/ip_utils.h"
 
 //(*InternalHeaders(UniverseEntryDialog)
 #include <wx/intl.h>

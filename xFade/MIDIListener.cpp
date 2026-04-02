@@ -1,6 +1,6 @@
 #include "MIDIListener.h"
 #include <log.h>
-#include "../xSchedule/wxMIDI/src/wxMidi.h"
+#include "../midi/wxMIDI/src/wxMidi.h"
 
 wxDEFINE_EVENT(EVT_MIDI, wxCommandEvent);
 

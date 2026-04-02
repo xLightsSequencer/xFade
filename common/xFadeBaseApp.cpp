@@ -26,9 +26,9 @@
 
 #include <log.h>
 
-#include "utils/ExternalHooks.h"
-#include "xLightsVersion.h"
-#include "xlBaseApp.h"
+#include "../shared/utils/ExternalHooks.h"
+#include "xFadeVersion.h"
+#include "xFadeBaseApp.h"
 #include "xlStackWalker.h"
 
 xlCrashHandler::xlCrashHandler(std::string const& appName) :
@@ -256,7 +256,7 @@ void xlCrashHandler::SendReport(std::string const& appName, std::string const& l
     wxDateTime now = wxDateTime::Now();
     int millis = wxGetUTCTimeMillis().GetLo() % 1000;
 
-    wxString ver = xlights_version_string + xlights_qualifier;
+    wxString ver = xfade_version_string + xfade_qualifier;
     ver.Trim();
     for (int x = 0; x < (int)ver.length(); x++) {
         if (ver[x] == ' ') ver[x] = '-';

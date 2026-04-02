@@ -3,7 +3,7 @@
 #include <wx/socket.h>
 
 #ifndef __WXOSX__
-#include "../xSchedule/wxMIDI/src/wxMidi.h"
+#include "../midi/wxMIDI/src/wxMidi.h"
 #endif
 
 Settings::Settings(std::string settings)

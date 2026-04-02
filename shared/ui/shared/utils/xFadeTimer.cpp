@@ -8,7 +8,7 @@
  * License: https://github.com/xLightsSequencer/xLights/blob/master/License.txt
  **************************************************************/
 
-#include "xLightsTimer.h"
+#include "xFadeTimer.h"
 #include <wx/stopwatch.h>
 #include <wx/thread.h>
 #include <log.h>
@@ -27,7 +27,7 @@
 class xlTimerThread : public wxThread
 {
 public:
-    xlTimerThread(const std::string& name, int interval, bool oneshot, xLightsTimer* timer, bool log);
+    xlTimerThread(const std::string& name, int interval, bool oneshot, xFadeTimer* timer, bool log);
     virtual ~xlTimerThread() {
     };
     void Reset(int interval, bool oneshot, const std::string& name);
@@ -46,7 +46,7 @@ private:
     std::atomic<int> _suspendCount;
     int _fudgefactor;
     bool _log;
-    xLightsTimer* _timer;
+    xFadeTimer* _timer;
     std::string _name;
 
     // the main thread holds a lock on this mutex while the timer is running
@@ -64,7 +64,7 @@ private:
 };
 
 #pragma region xlTimerTimer
-xLightsTimer::xLightsTimer() :
+xFadeTimer::xFadeTimer() :
     wxTimer()
 {
     _log = false;
@@ -76,7 +76,7 @@ xLightsTimer::xLightsTimer() :
     _fired = 0;
 }
 
-xLightsTimer::~xLightsTimer()
+xFadeTimer::~xFadeTimer()
 {
     if (_t != nullptr)
     {
@@ -87,7 +87,7 @@ xLightsTimer::~xLightsTimer()
     }
 }
 
-void xLightsTimer::Stop()
+void xFadeTimer::Stop()
 {
     if (_t != nullptr)
     {
@@ -95,13 +95,13 @@ void xLightsTimer::Stop()
     }
 }
 
-void xLightsTimer::SetName(const std::string& name)
+void xFadeTimer::SetName(const std::string& name)
 {
     _name = name; 
     if (_t != nullptr) _t->SetName(name);
 }
 
-bool xLightsTimer::Start(int time/* = -1*/, bool oneShot/* = wxTIMER_CONTINUOUS*/, const std::string& name)
+bool xFadeTimer::Start(int time/* = -1*/, bool oneShot/* = wxTIMER_CONTINUOUS*/, const std::string& name)
 {
 
     wxStopWatch sw;
@@ -136,7 +136,7 @@ bool xLightsTimer::Start(int time/* = -1*/, bool oneShot/* = wxTIMER_CONTINUOUS*
     return true;
 }
 
-void xLightsTimer::DoSendTimer() {
+void xFadeTimer::DoSendTimer() {
     if (!_pending) {
         return;
     }
@@ -146,7 +146,7 @@ void xLightsTimer::DoSendTimer() {
     _pending = false;
 }
 
-void xLightsTimer::Notify() {
+void xFadeTimer::Notify() {
 
     ++_fired;
 
@@ -164,11 +164,11 @@ void xLightsTimer::Notify() {
     else
     {
         _pending = true;
-        wxTimer::CallAfter(&xLightsTimer::DoSendTimer);
+        wxTimer::CallAfter(&xFadeTimer::DoSendTimer);
     }
 }
 
-int xLightsTimer::GetInterval() const
+int xFadeTimer::GetInterval() const
 {
     if (_t != nullptr)
     {
@@ -177,7 +177,7 @@ int xLightsTimer::GetInterval() const
     return -1;
 }
 
-std::chrono::time_point<std::chrono::system_clock> xLightsTimer::GetNextEventTime()
+std::chrono::time_point<std::chrono::system_clock> xFadeTimer::GetNextEventTime()
 {
     std::chrono::time_point<std::chrono::system_clock> next = _startTime + std::chrono::milliseconds((_fired + 1) * GetInterval());
     std::chrono::time_point<std::chrono::system_clock> now = std::chrono::system_clock::now();
@@ -195,7 +195,7 @@ std::chrono::time_point<std::chrono::system_clock> xLightsTimer::GetNextEventTim
     return next;
 }
 
-inline void xLightsTimer::Suspend(bool suspend)
+inline void xFadeTimer::Suspend(bool suspend)
 {
     if (!suspend) {
         _fired = 0;
@@ -205,7 +205,7 @@ inline void xLightsTimer::Suspend(bool suspend)
     _suspend = suspend;
 }
 
-xlTimerThread::xlTimerThread(const std::string& name, int interval, bool oneshot, xLightsTimer* timer, bool log) : wxThread(wxTHREAD_JOINABLE)
+xlTimerThread::xlTimerThread(const std::string& name, int interval, bool oneshot, xFadeTimer* timer, bool log) : wxThread(wxTHREAD_JOINABLE)
 {
     
     // shouldnt be creating the timer thread with an interval less than zero
@@ -461,14 +461,14 @@ void xlTimerThread::SetFudgeFactor(int ff)
 }
 
 #else
-xLightsTimer::xLightsTimer() {}
-xLightsTimer::~xLightsTimer() {}
-void xLightsTimer::Stop() {wxTimer::Stop();}
-bool xLightsTimer::Start(int time, bool oneShot, const std::string& name) {return wxTimer::Start(time, oneShot);};
-void xLightsTimer::Notify() { RunInAutoReleasePool([this]() {wxTimer::Notify();});}
-int xLightsTimer::GetInterval() const { return wxTimer::GetInterval(); }
-void xLightsTimer::DoSendTimer() {};
-void xLightsTimer::SetName(const std::string& name) {_name = name;}
+xFadeTimer::xFadeTimer() {}
+xFadeTimer::~xFadeTimer() {}
+void xFadeTimer::Stop() {wxTimer::Stop();}
+bool xFadeTimer::Start(int time, bool oneShot, const std::string& name) {return wxTimer::Start(time, oneShot);};
+void xFadeTimer::Notify() { RunInAutoReleasePool([this]() {wxTimer::Notify();});}
+int xFadeTimer::GetInterval() const { return wxTimer::GetInterval(); }
+void xFadeTimer::DoSendTimer() {};
+void xFadeTimer::SetName(const std::string& name) {_name = name;}
 
 #endif
 

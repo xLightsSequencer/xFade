@@ -19,7 +19,7 @@
 #include <pugixml.hpp>
 
 #include "UtilFunctions.h"
-#include "utils/ExternalHooks.h"
+#include "../shared/utils/ExternalHooks.h"
 #include "string_utils.h"
 
 #include <mutex>

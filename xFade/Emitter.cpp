@@ -7,8 +7,8 @@
 #include "xFadeMain.h"
 #include "Settings.h"
 #include "PacketData.h"
-#include "../xLights/utils/UtilFunctions.h"
-#include "../xLights/ui/wxUtilities.h"
+#include "../shared/utils/UtilFunctions.h"
+#include "../shared/ui/wxUtilities.h"
 
 #include <log.h>
 

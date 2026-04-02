@@ -8,7 +8,7 @@
  * License: https://github.com/xLightsSequencer/xLights/blob/master/License.txt
  **************************************************************/
 
-#include "xLightsVersion.h"
+#include "xFadeVersion.h"
 
 static const std::string BITS_32 = "32bit";
 static const std::string BITS_64 = "64bit";
@@ -27,8 +27,8 @@ const std::string &GetBitness()
 
 std::string GetDisplayVersionString() {
 #ifndef __WXOSX__
-    return xlights_version_string + " " + GetBitness();
+    return xfade_version_string + " " + GetBitness();
 #else
-    return xlights_version_string;
+    return xfade_version_string;
 #endif
 }

@@ -19,7 +19,7 @@
 #endif
 #endif
 
-#include "../common/xlBaseApp.h"
+#include "../common/xFadeBaseApp.h"
 
 class xFadeApp : public xlBaseApp
 {
