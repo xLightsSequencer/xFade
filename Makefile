@@ -9,6 +9,7 @@ MKDIR           = mkdir -p
 CHK_DIR_EXISTS  = test -d
 INSTALL_PROGRAM = install -m 755 -p
 DEL_FILE        = rm -f
+ICON_SIZES      = 16x16 32x32 64x64 128x128 256x256
 SUDO            = `which sudo`
 
 WXWIDGETS_TAG=xlights_2026.04
@@ -43,10 +44,12 @@ install:
 	@$(CHK_DIR_EXISTS) $(DESTDIR)/${PREFIX}/bin || $(MKDIR) $(DESTDIR)/${PREFIX}/bin
 	-$(INSTALL_PROGRAM) -D bin/xFade $(DESTDIR)/${PREFIX}/bin/xFade
 	-$(INSTALL_PROGRAM) -D bin/xfade.desktop $(DESTDIR)/${PREFIX}/share/applications/xfade.desktop
+	$(foreach size, $(ICON_SIZES), install -D -m 644 images/icons/$(size).png $(DESTDIR)/${PREFIX}/share/icons/hicolor/$(size)/apps/xfade.png ; )
 
 uninstall:
 	-$(DEL_FILE) $(DESTDIR)/${PREFIX}/bin/xFade
 	-$(DEL_FILE) $(DESTDIR)/${PREFIX}/share/applications/xfade.desktop
+	$(foreach size, $(ICON_SIZES), $(DEL_FILE) $(DESTDIR)/${PREFIX}/share/icons/hicolor/$(size)/apps/xfade.png ; )
 
 #############################################################################
 

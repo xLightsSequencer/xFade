@@ -5,6 +5,6 @@ Exec=xFade %f
 Comment=Realtime control of e1.31
 Name=xFade
 Terminal=false
-Icon=xlights
+Icon=xfade
 Categories=AudioVideo;
 MimeType=text/xml;
