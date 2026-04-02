@@ -34,8 +34,8 @@
 */
 
 // MIDI support throgh Portmidi lib
-#include "../../portmidi/portmidi.h"
-#include "../../portmidi/porttime.h"
+#include <portmidi.h>
+#include <porttime.h>
 
 //other
 #include <time.h>

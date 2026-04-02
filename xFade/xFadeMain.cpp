@@ -41,7 +41,6 @@
 
 #include <log.h>
 
-#include "../include/xFade.xpm"
 #include "../include/xFade-16.xpm"
 #include "../include/xFade-32.xpm"
 #include "../include/xFade-64.xpm"
@@ -316,7 +315,6 @@ xFadeFrame::xFadeFrame(wxWindow* parent, wxWindowID id)
     icons.AddIcon(wxIcon(xlights_32_xpm));
     icons.AddIcon(wxIcon(xlights_64_xpm));
     icons.AddIcon(wxIcon(xlights_128_xpm));
-    icons.AddIcon(wxIcon(xlights_xpm));
     SetIcons(icons);
 
     LoadState();

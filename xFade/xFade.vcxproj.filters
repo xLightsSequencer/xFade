@@ -32,6 +32,12 @@
     <ClCompile Include="..\shared\utils\string_utils.cpp">
       <Filter>utils</Filter>
     </ClCompile>
+    <ClCompile Include="..\shared\utils\CurlManager.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\utils\JobPool.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
     <ClCompile Include="..\dependencies\pugixml\src\pugixml.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +72,12 @@
       <Filter>utils</Filter>
     </ClInclude>
     <ClInclude Include="..\shared\utils\string_utils.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\utils\CurlManager.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\utils\JobPool.h">
       <Filter>utils</Filter>
     </ClInclude>
   </ItemGroup>

@@ -102,6 +102,10 @@
 		<Unit filename="../shared/utils/ip_utils.h" />
 		<Unit filename="../shared/utils/string_utils.cpp" />
 		<Unit filename="../shared/utils/string_utils.h" />
+		<Unit filename="../shared/utils/CurlManager.cpp" />
+		<Unit filename="../shared/utils/CurlManager.h" />
+		<Unit filename="../shared/utils/JobPool.cpp" />
+		<Unit filename="../shared/utils/JobPool.h" />
 		<Unit filename="../shared/ui/shared/utils/xFadeTimer.cpp" />
 		<Unit filename="../shared/ui/shared/utils/xFadeTimer.h" />
 		<Unit filename="../shared/xFadeVersion.cpp" />

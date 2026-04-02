@@ -108,6 +108,8 @@
     <ClCompile Include="..\shared\ui\wxUtilities.cpp" />
     <ClCompile Include="..\shared\utils\ip_utils.cpp" />
     <ClCompile Include="..\shared\utils\string_utils.cpp" />
+    <ClCompile Include="..\shared\utils\CurlManager.cpp" />
+    <ClCompile Include="..\shared\utils\JobPool.cpp" />
     <ClCompile Include="..\shared\ui\shared\utils\xFadeTimer.cpp" />
     <ClCompile Include="..\shared\xFadeVersion.cpp" />
     <ClCompile Include="..\json\wxJSON\jsonreader.cpp" />
@@ -138,6 +140,8 @@
     <ClInclude Include="..\shared\ui\wxUtilities.h" />
     <ClInclude Include="..\shared\utils\ip_utils.h" />
     <ClInclude Include="..\shared\utils\string_utils.h" />
+    <ClInclude Include="..\shared\utils\CurlManager.h" />
+    <ClInclude Include="..\shared\utils\JobPool.h" />
     <ClInclude Include="..\shared\ui\shared\utils\xFadeTimer.h" />
     <ClInclude Include="..\shared\xFadeVersion.h" />
     <ClInclude Include="..\json\wxJSON\jsonreader.h" />
