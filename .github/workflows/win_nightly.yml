@@ -59,7 +59,7 @@ jobs:
     - name: Upload Installer
       uses: actions/upload-artifact@v4
       with:
-        name: xFade_x64_Installer
+        name: xFade_Installer
         path: 'build_scripts\msw\output\**'
 
     - name: Create prerelease
