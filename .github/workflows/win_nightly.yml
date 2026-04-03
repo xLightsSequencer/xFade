@@ -9,19 +9,26 @@ jobs:
   check_for_commits:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Check for new commits today
         id: check-new-commits
-        uses: adriangl/check-new-commits-action@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          seconds: 86400
-          branch: 'main'
-      - name: Set output if new commits found
-        if: ${{ steps.check-new-commits.outputs.has-new-commits == 'true' }}
-        run: echo "::set-output name=should_run::true"
-      - name: Set output if no new commits
-        if: ${{ steps.check-new-commits.outputs.has-new-commits != 'true' }}
-        run: echo "::set-output name=should_run::false"
+        shell: bash
+        run: |
+          # Get the timestamp from 24 hours ago
+          CUTOFF_TIME=$(date -d '24 hours ago' +%s)
+          # Get the timestamp of the latest commit
+          LATEST_COMMIT=$(git log -1 --format=%ct)
+          # Compare and set output
+          if [ "$LATEST_COMMIT" -gt "$CUTOFF_TIME" ]; then
+            echo "has-new-commits=true" >> $GITHUB_OUTPUT
+          else
+            echo "has-new-commits=false" >> $GITHUB_OUTPUT
+          fi
+
     outputs:
       should_run: ${{ steps.check-new-commits.outputs.has-new-commits }}
 
